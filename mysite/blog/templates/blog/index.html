@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+Bravo's Blog
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+
+{% block page_content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/dp.jpeg' %}" alt="Bravo - The Author">
+        <h2>BRAVO'S BLOG</h2>
+    </header>
+    <p>Hi, I am Muhammad Bravo</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul> 
+        {% for post in posts %}
+        {% include 'blog/includes/post.html' %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id='about'>
+    <h2>What I do</h2>
+    <p>I love django programming</p>
+    <p>my goal is to keep it up</p>
+</section>
+
+{% endblock page_content %}
